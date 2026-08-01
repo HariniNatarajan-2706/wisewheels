@@ -4,6 +4,7 @@ app_publisher = "harini"
 app_description = "vehicle service center"
 app_email = "harinimn.23ece@kongu.edu"
 app_license = "mit"
+app_include_js="custom_desk.bundle.js"
 
 # Apps
 # ------------------
@@ -138,13 +139,11 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "ToDo": {
+        "validate": "wisewheels.api.custom_logic"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -245,7 +244,7 @@ app_license = "mit"
 # ]
 
 # Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
+#export_python_type_annotations = True
 
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
