@@ -2,33 +2,33 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
- "creation": "2026-07-27 16:54:41.031423",
+ "creation": "2026-08-06 15:33:22.828538",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "sname",
-  "section"
+  "kidname",
+  "mark"
  ],
  "fields": [
   {
-   "fieldname": "section",
+   "fieldname": "kidname",
    "fieldtype": "Data",
-   "label": "section"
+   "label": "kidname",
+   "options": "migrate"
   },
   {
-   "fieldname": "sname",
+   "fieldname": "mark",
    "fieldtype": "Data",
-   "label": "sname"
+   "label": "mark"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-05 18:08:53.363882",
+ "modified": "2026-08-06 17:24:56.922629",
  "modified_by": "Administrator",
  "module": "Wisewheels",
- "name": "multiselect",
+ "name": "api",
  "owner": "Administrator",
  "permissions": [
   {

@@ -23,6 +23,7 @@
   "veh_number",
   "fuel_type",
   "emission_category",
+  "submit",
   "column_break_nnwu",
   "service",
   "voucher",
@@ -188,13 +189,19 @@
    "fieldtype": "Select",
    "label": "account_type",
    "options": "normal\npremium"
+  },
+  {
+   "button_color": "Danger",
+   "fieldname": "submit",
+   "fieldtype": "Button",
+   "label": "Submit"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-24 12:22:11.220801",
+ "modified": "2026-08-03 19:03:48.077482",
  "modified_by": "Administrator",
  "module": "Wisewheels",
  "name": "customer_details",

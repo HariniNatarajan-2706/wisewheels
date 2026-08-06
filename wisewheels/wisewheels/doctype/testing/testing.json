@@ -2,9 +2,8 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
- "creation": "2026-07-27 16:54:41.031423",
+ "creation": "2026-08-05 17:22:52.152403",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "sname",
@@ -25,10 +24,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-05 18:08:53.363882",
+ "modified": "2026-08-05 18:08:41.942154",
  "modified_by": "Administrator",
  "module": "Wisewheels",
- "name": "multiselect",
+ "name": "testing",
  "owner": "Administrator",
  "permissions": [
   {

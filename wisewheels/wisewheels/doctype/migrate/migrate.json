@@ -2,33 +2,33 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
- "creation": "2026-07-27 16:54:41.031423",
+ "creation": "2026-08-06 12:23:44.812299",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "sname",
-  "section"
+  "appliername",
+  "grade"
  ],
  "fields": [
   {
-   "fieldname": "section",
+   "fieldname": "grade",
    "fieldtype": "Data",
-   "label": "section"
+   "label": "grade"
   },
   {
-   "fieldname": "sname",
-   "fieldtype": "Data",
-   "label": "sname"
+   "fieldname": "appliername",
+   "fieldtype": "Link",
+   "label": "appliername",
+   "options": "api"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-05 18:08:53.363882",
+ "modified": "2026-08-06 17:25:30.194176",
  "modified_by": "Administrator",
  "module": "Wisewheels",
- "name": "multiselect",
+ "name": "migrate",
  "owner": "Administrator",
  "permissions": [
   {

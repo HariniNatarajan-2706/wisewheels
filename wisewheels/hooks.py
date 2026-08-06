@@ -5,6 +5,7 @@ app_description = "vehicle service center"
 app_email = "harinimn.23ece@kongu.edu"
 app_license = "mit"
 app_include_js="custom_desk.bundle.js"
+on_login = "wisewheels.api.user_login"
 
 # Apps
 # ------------------
@@ -144,7 +145,17 @@ doc_events = {
         "validate": "wisewheels.api.custom_logic"
     }
 }
-
+doc_events = {
+    "services": {
+        "validate": "wisewheels.api.validate_service",
+        "after_insert": "wisewheels.api.service_created"
+    }
+}
+doc_events = {
+    "testing": {
+        "after_insert": "wisewheels.api.create_multiselect"
+    }
+}
 # Scheduled Tasks
 # ---------------
 
@@ -165,6 +176,12 @@ doc_events = {
 # 		"wisewheels.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+    "all": [
+        "wisewheels.api.scheduler_test"
+    ]
+}
 
 # Testing
 # -------

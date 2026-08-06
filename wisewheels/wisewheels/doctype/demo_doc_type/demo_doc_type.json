@@ -7,7 +7,6 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "status",
   "phone",
   "remark",
   "amended_from"
@@ -19,12 +18,6 @@
    "in_list_view": 1,
    "label": "title",
    "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "status",
-   "options": "draft\nApproved"
   },
   {
    "fieldname": "remark",
@@ -52,7 +45,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-24 10:58:50.379587",
+ "modified": "2026-08-05 17:22:05.830460",
  "modified_by": "Administrator",
  "module": "Wisewheels",
  "name": "demo_doc_type",
