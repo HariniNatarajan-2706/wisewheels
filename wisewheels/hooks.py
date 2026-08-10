@@ -143,17 +143,19 @@ on_login = "wisewheels.api.user_login"
 doc_events = {
     "ToDo": {
         "validate": "wisewheels.api.custom_logic"
-    }
-}
-doc_events = {
+    },
+
     "services": {
         "validate": "wisewheels.api.validate_service",
         "after_insert": "wisewheels.api.service_created"
-    }
-}
-doc_events = {
+    },
+
     "testing": {
         "after_insert": "wisewheels.api.create_multiselect"
+    },
+
+    "customer_details": {
+        "after_insert": "wisewheels.api.customer_created"
     }
 }
 # Scheduled Tasks
@@ -180,9 +182,11 @@ doc_events = {
 scheduler_events = {
     "all": [
         "wisewheels.api.scheduler_test"
+    ],
+    "daily": [
+        "wisewheels.tasks.daily_maintenance"
     ]
 }
-
 # Testing
 # -------
 
@@ -226,8 +230,9 @@ scheduler_events = {
 
 # Job Events
 # ----------
-# before_job = ["wisewheels.utils.before_job"]
-# after_job = ["wisewheels.utils.after_job"]
+before_job = ["wisewheels.api.before_job"]
+after_job = ["wisewheels.api.after_job"]
+
 
 # User Data Protection
 # --------------------
