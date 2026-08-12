@@ -19,37 +19,45 @@ def service_created(doc, method):
     )
 
 
-def send_thank_you_email(service_name):
+def send_welcome_email(customer_name):
 
-    # Fetch the Service document
-    service = frappe.get_doc("services", service_name)
-
-    # Fetch the linked Customer Details document
-    customer = frappe.get_doc(
-        "customer_details",
-        service.customer
-    )
-
-    # Don't send if email is empty
-    if not customer.email:
-        return
+    customer = frappe.get_doc("customer_details", customer_name)
 
     frappe.sendmail(
         recipients=[customer.email],
-        subject="WiseWheels - Service Booking Confirmation",
+        subject="Welcome to WiseWheels",
         message=f"""
-        Dear {customer.customer_name},
+        Hello {customer.customer_name},
 
-        Thank you for choosing WiseWheels.
+        Welcome to WiseWheels!
 
-        Your service request has been received successfully.
+        Your registration has been completed successfully.
 
-        Our mechanic will contact you shortly.
+        Thank you for choosing us.
 
         Regards,
         WiseWheels Team
         """
     )
+
+def customer_created(doc, method):
+
+    frappe.enqueue(
+        "wisewheels.api.send_welcome_email",
+        customer_name=doc.name
+    )
+
+
+def before_job(job):
+     frappe.log_error(
+        title="BEFORE JOB",
+        message=f"Method: {method}\nKwargs: {kwargs}\nTransaction Type: {transaction_type}"
+    )
+
+
+def after_job(job, result):
+    frappe.logger().info(f"AFTER JOB: {job}")
+
 @frappe.whitelist()
 def get_customer():
 
@@ -137,3 +145,33 @@ def get_migrate_api():
         "document_api_updated_record": updated_doc,
         "database_api_updated_records": updated_data
     }
+@frappe.whitelist(allow_guest=True)
+def get_recent_todos():
+    todos = frappe.get_list(
+        "ToDo",
+        fields=["name", "description", "owner"],
+        order_by="creation desc",
+        limit_page_length=5
+    )
+
+    for todo in todos:
+        todo["email"] = frappe.db.get_value(
+            "User",
+            todo["owner"],
+            "email"
+        )
+
+    current_time = frappe.utils.now()
+
+    return {
+        "timestamp": current_time,
+        "records": todos
+    }
+
+@frappe.whitelist()
+def create_task(task_subject):
+    task = frappe.new_doc("Task")
+    task.subject = task_subject
+    task.save()
+
+    return task.name
