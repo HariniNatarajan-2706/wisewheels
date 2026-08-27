@@ -145,7 +145,7 @@ def get_migrate_api():
         "document_api_updated_record": updated_doc,
         "database_api_updated_records": updated_data
     }
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def get_recent_todos():
     todos = frappe.get_list(
         "ToDo",
